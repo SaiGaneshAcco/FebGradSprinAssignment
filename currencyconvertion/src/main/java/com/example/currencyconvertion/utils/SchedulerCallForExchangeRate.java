@@ -1,21 +1,16 @@
 package com.example.currencyconvertion.utils;
 
-import java.io.IOException;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.concurrent.Callable;
-import java.util.concurrent.TimeUnit;
-
 import com.example.currencyconvertion.dto.ExchangeRateData;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
-
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.ResponseBody;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
 
 public class SchedulerCallForExchangeRate implements Callable<ExchangeRateData>{
@@ -39,7 +34,7 @@ public class SchedulerCallForExchangeRate implements Callable<ExchangeRateData>{
 			}
 		}
 		if(st.contains("AED"))
-		System.out.println("AED sleep done");
+			System.out.println("AED sleep done");
 		RestCallService restCallService=new RestCallService();
 		String response=restCallService.restTemplateCAll(st);
 	    ObjectMapper objectMapper = new ObjectMapper();
